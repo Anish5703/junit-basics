@@ -37,13 +37,19 @@ public class MathUtilsTest {
 
             int expected = 4;
             int actual = mathUtils.add(2, 2);
-            assertEquals(expected, actual,"should return a correct addition");
+
+            /*Using supplier (lambda) for assert Message which optimizes computation speed
+            by ignoring the error message to be computed if test case is success
+            and only compute error message by method assertEquals if the test case fails
+             */
+            assertEquals(expected, actual, () -> "should return "+expected +" but returned "+actual);
         }
 
         @Test
         @DisplayName("Testing for negative numbers")
         void testAddNegative()
         {
+
             assertEquals(-2,mathUtils.add(-1,-1),"should return a correct addition");
         }
     }
