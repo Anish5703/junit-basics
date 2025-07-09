@@ -13,6 +13,8 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 public class MathUtilsTest {
 
     private MathUtils mathUtils;
+    private TestInfo testInfo;
+    private TestReporter testReporter;
 
     @BeforeAll
      void beforeAll()
@@ -21,8 +23,10 @@ public class MathUtilsTest {
     }
 
     @BeforeEach
-    public void beforeEach()
+    public void beforeEach(TestInfo testInfo , TestReporter testReporter)
     {
+        this.testInfo = testInfo;
+        this.testReporter = testReporter;
         mathUtils = new MathUtils();
         System.out.println("Run Before Each");
     }
@@ -56,8 +60,10 @@ public class MathUtilsTest {
 
     @Test
     @DisplayName("Testing multiply method")
+    @Tag("Arithmetic")
     void testMultiply()
     {
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+" , Test Tag "+testInfo.getTags());
         assertAll(
                 () -> assertEquals(4,mathUtils.multiply(2,2)),
                 () -> assertEquals(6,mathUtils.multiply(2,3)),
@@ -67,6 +73,7 @@ public class MathUtilsTest {
 
     @RepeatedTest(3)
     @DisplayName("Testing computeCircleArea Method")
+    @Tag("Circle")
     public void testComputeCircleArea(RepetitionInfo repetitionInfo)
     {
        System.out.println("Current Repetition " +repetitionInfo.getCurrentRepetition());
@@ -79,7 +86,7 @@ public class MathUtilsTest {
     @Test
     @DisplayName("Testing divide Method 1")
     @EnabledOnOs(OS.WINDOWS)
-    @Tag("Division")
+    @Tag("Arithmetic")
 
     public void testDivide()
     {
@@ -89,7 +96,7 @@ public class MathUtilsTest {
 
     @Test
     @DisplayName("Testing divide Method 2")
-    @Tag("Division")
+    @Tag("Arithmetic")
     void testDivide2()
     {
         int a = 1;
