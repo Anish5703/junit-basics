@@ -79,6 +79,7 @@ public class MathUtilsTest {
     @Test
     @DisplayName("Testing divide Method 1")
     @EnabledOnOs(OS.WINDOWS)
+    @Tag("Division")
 
     public void testDivide()
     {
@@ -88,6 +89,7 @@ public class MathUtilsTest {
 
     @Test
     @DisplayName("Testing divide Method 2")
+    @Tag("Division")
     void testDivide2()
     {
         int a = 1;
