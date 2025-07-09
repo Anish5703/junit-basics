@@ -1,2 +1,5 @@
 # junit-basics
-Junit Basic Demo using jubi
+Junit Basic Demo
+=> Junit 5
+-> jupiter Api
+
