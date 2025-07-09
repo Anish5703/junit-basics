@@ -65,11 +65,11 @@ public class MathUtilsTest {
         );
     }
 
-    @Test
+    @RepeatedTest(3)
     @DisplayName("Testing computeCircleArea Method")
-    public void testComputeCircleArea()
+    public void testComputeCircleArea(RepetitionInfo repetitionInfo)
     {
-
+       System.out.println("Current Repetition " +repetitionInfo.getCurrentRepetition());
         double expected = 12.566370614359172;
         double actual = mathUtils.computeCircleArea(2);
         assertEquals(expected,actual,"Output must be equals PI*(radius^2)");
